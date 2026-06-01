@@ -1,3 +1,9 @@
+import photoUser from '../photo_user.png';
+import cvFile from '../CV.pdf';
+import loveCodeImage from '../lovecode-site.png';
+import oldersRetroImage from '../oldersretro.png';
+import termotubosImage from '../termotubos.png';
+
 export const portfolioData = {
   // ========== INFORMAÇÕES PESSOAIS ==========
   personal: {
@@ -5,8 +11,8 @@ export const portfolioData = {
     title: "Desenvolvedor Full Stack",
     subtitle: "Criando soluções web modernas e inovadoras",
     description: "Sou apaixonado por tecnologia e estou sempre buscando aprender e evoluir. Meu maior objetivo é ingressar profissionalmente na área de desenvolvimento, construir uma carreira sólida e transformar minha paixão por tecnologia em crescimento profissional.",
-    avatar: "/src/photo_user.png",
-    cv: "/src/CV.pdf",
+    avatar: photoUser,
+    cv: cvFile,
   },
 
   // ========== REDES SOCIAIS ==========
@@ -119,7 +125,7 @@ export const portfolioData = {
       id: 1,
       title: "LoveCode",
       description: "Sites para casais, com timer, fotos, músicas e lembranças especiais.",
-      image: "/src/lovecode-site.png",
+      image: loveCodeImage,
       technologies: ["HTML", "CSS", "JavaScript"],
       category: "Front-end",
       links: {
@@ -131,7 +137,7 @@ export const portfolioData = {
       id: 2,
       title: "Olders Retro",
       description: "Servidor de Tibia com diversas funcionalidades excluvisas.",
-      image: "/src/oldersretro.png",
+      image: oldersRetroImage,
       technologies: ["Lua", "Mysql", "PHP", "C", "C++", "Shell", "Python"],
       category: "Full Stack",
       links: {
@@ -142,7 +148,7 @@ export const portfolioData = {
       id: 3,
       title: "Termotubos HUB",
       description: "Site desenvolvido para a empresa Termotubos, com o objetivo de centralizar e facilitar informações.",
-      image: "/src/termotubos.png",
+      image: termotubosImage,
       technologies: ["HTML", "CSS", "JavaScript"],
       category: "Front-end",
       links: {
