@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Award, BookOpen } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Education = () => {
+const Education = ({ t }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,11 +39,11 @@ const Education = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Formação & Certificações</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal-title">
+              <span className="gradient-text">{t.education.title}</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Cursos, certificações e formações acadêmicas
+              {t.education.description}
             </p>
           </motion.div>
 
@@ -56,6 +56,8 @@ const Education = () => {
               <motion.div
                 key={edu.id}
                 variants={itemVariants}
+                whileHover={{ y: -8, scale: 1.01 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="glass rounded-xl p-6 hover:bg-sky-500/5 transition-all card-hover group"
               >
                 {/* Icon */}
@@ -80,7 +82,7 @@ const Education = () => {
                   {edu.institution}
                 </p>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  {edu.description}
+                  {t.education.items?.[edu.id]?.description ?? edu.description}
                 </p>
               </motion.div>
             ))}

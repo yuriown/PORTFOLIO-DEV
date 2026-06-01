@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Contact = () => {
+const Contact = ({ t }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -58,8 +58,8 @@ const Contact = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-float" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
@@ -70,11 +70,11 @@ const Contact = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Vamos Conversar!</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal-title">
+              <span className="gradient-text">{t.contact.title}</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Tenho interesse em oportunidades freelance e projetos desafiadores. Sinta-se livre para me contactar!
+              {t.contact.description}
             </p>
           </motion.div>
 
@@ -86,7 +86,7 @@ const Contact = () => {
                 {/* Name Input */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-300">
-                    Seu Nome
+                    {t.contact.nameLabel}
                   </label>
                   <input
                     type="text"
@@ -94,7 +94,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="João Silva"
+                    placeholder={t.contact.namePlaceholder}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500"
                   />
@@ -103,7 +103,7 @@ const Contact = () => {
                 {/* Email Input */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-300">
-                    Seu Email
+                    {t.contact.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -111,7 +111,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="seu.email@exemplo.com"
+                    placeholder={t.contact.emailPlaceholder}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500"
                   />
@@ -120,14 +120,14 @@ const Contact = () => {
                 {/* Message Input */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-300">
-                    Mensagem
+                    {t.contact.messageLabel}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Escreva sua mensagem aqui..."
+                    placeholder={t.contact.messagePlaceholder}
                     rows="5"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500 resize-none"
@@ -141,7 +141,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 rounded-lg bg-green-500/20 border border-green-500 text-green-300"
                   >
-                    ✓ Mensagem enviada com sucesso!
+                    {t.contact.successMessage}
                   </motion.div>
                 )}
 
@@ -151,7 +151,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 rounded-lg bg-red-500/20 border border-red-500 text-red-300"
                   >
-                    ✗ Erro ao enviar mensagem. Tente novamente!
+                    {t.contact.errorMessage}
                   </motion.div>
                 )}
 
@@ -164,7 +164,7 @@ const Contact = () => {
                   className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={20} />
-                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                  {isSubmitting ? t.contact.sendingButton : t.contact.sendButton}
                 </motion.button>
               </form>
             </motion.div>
@@ -181,7 +181,7 @@ const Contact = () => {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Email</h4>
+                  <h4 className="font-semibold text-white mb-1">{t.contact.emailTitle}</h4>
                   <p className="text-gray-400 group-hover:text-sky-400 transition-colors">
                     {portfolioData.social.email}
                   </p>
@@ -190,7 +190,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <p className="text-sm font-semibold text-gray-400">Minhas redes sociais:</p>
+                <p className="text-sm font-semibold text-gray-400">{t.contact.socialTitle}</p>
                 <div className="grid grid-cols-2 gap-4">
                   {portfolioData.social.github && (
                     <motion.a
@@ -201,7 +201,7 @@ const Contact = () => {
                       className="glass rounded-lg p-4 flex items-center justify-center gap-2 group hover:bg-sky-500/10 transition-all"
                     >
                       <Github size={20} className="text-sky-400" />
-                      <span className="text-sm font-semibold group-hover:text-sky-400">GitHub</span>
+                      <span className="text-sm font-semibold group-hover:text-sky-400">{t.contact.githubLabel}</span>
                     </motion.a>
                   )}
                   {portfolioData.social.linkedin && (
@@ -213,7 +213,7 @@ const Contact = () => {
                       className="glass rounded-lg p-4 flex items-center justify-center gap-2 group hover:bg-sky-500/10 transition-all"
                     >
                       <Linkedin size={20} className="text-sky-400" />
-                      <span className="text-sm font-semibold group-hover:text-sky-400">LinkedIn</span>
+                      <span className="text-sm font-semibold group-hover:text-sky-400">{t.contact.linkedinLabel}</span>
                     </motion.a>
                   )}
                   {portfolioData.social.instagram && (
@@ -225,7 +225,7 @@ const Contact = () => {
                       className="glass rounded-lg p-4 flex items-center justify-center gap-2 group hover:bg-sky-500/10 transition-all"
                     >
                       <Instagram size={20} className="text-sky-400" />
-                      <span className="text-sm font-semibold group-hover:text-sky-400">Instagram</span>
+                      <span className="text-sm font-semibold group-hover:text-sky-400">{t.contact.instagramLabel}</span>
                     </motion.a>
                   )}
                 </div>
@@ -237,10 +237,10 @@ const Contact = () => {
                 className="glass rounded-lg p-6 space-y-3 border-l-4 border-sky-500"
               >
                 <p className="text-sm text-gray-400">
-                  <span className="font-semibold text-sky-400">Tempo de resposta:</span> Geralmente respondo em 24h
+                  <span className="font-semibold text-sky-400">{t.contact.responseTimeLabel}</span> {t.contact.responseTimeValue}
                 </p>
                 <p className="text-sm text-gray-400">
-                  <span className="font-semibold text-sky-400">Interessado em:</span> Projetos freelance, full-time e colaborações
+                  <span className="font-semibold text-sky-400">{t.contact.interestedLabel}</span> {t.contact.interestedValue}
                 </p>
               </motion.div>
             </motion.div>

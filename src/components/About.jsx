@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 
-const About = () => {
+const About = ({ t }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,8 +37,8 @@ const About = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">{portfolioData.about.title}</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal-title">
+              <span className="gradient-text">{t.about.title}</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" />
           </motion.div>
@@ -46,7 +46,12 @@ const About = () => {
           {/* Content Grid */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <motion.div variants={itemVariants} className="relative">
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="relative"
+            >
               <div className="relative w-80 h-80 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-500/30 to-blue-600/30 rounded-2xl blur-2xl" />
                 <img
@@ -60,7 +65,7 @@ const About = () => {
             {/* Description and Stats */}
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-gray-300 text-lg leading-relaxed">
-                {portfolioData.about.description}
+                {t.about.description}
               </p>
 
               {/* Stats */}
@@ -69,10 +74,12 @@ const About = () => {
                   <motion.div
                     key={index}
                     variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
                     className="glass rounded-lg p-4 text-center hover:bg-sky-500/10 transition-all"
                   >
                     <div className="text-3xl font-bold text-sky-400 mb-2">{stat.value}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
+                    <div className="text-sm text-gray-400">{t.about.stats?.[index] ?? stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -82,18 +89,18 @@ const About = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-6 bg-gradient-to-b from-sky-500 to-blue-600 rounded-full mt-1" />
                   <div>
-                    <h4 className="text-sky-400 font-semibold mb-1">Especialidade</h4>
+                    <h4 className="text-sky-400 font-semibold mb-1">{t.about.specialtyTitle}</h4>
                     <p className="text-gray-400">
-                      Desenvolvedor Full Stack com foco em criar soluções modernas, responsivas e de alta performance.
+                      {t.about.specialtyText}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-6 bg-gradient-to-b from-sky-500 to-blue-600 rounded-full mt-1" />
                   <div>
-                    <h4 className="text-sky-400 font-semibold mb-1">Abordagem</h4>
+                    <h4 className="text-sky-400 font-semibold mb-1">{t.about.approachTitle}</h4>
                     <p className="text-gray-400">
-                      Busco combinar design elegante com funcionalidades robustas, sempre pensando na experiência do usuário.
+                      {t.about.approachText}
                     </p>
                   </div>
                 </div>

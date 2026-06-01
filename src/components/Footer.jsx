@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Footer = () => {
+const Footer = ({ t }) => {
   const currentYear = new Date().getFullYear();
 
   const containerVariants = {
@@ -50,30 +50,22 @@ const Footer = () => {
                 <span className="font-bold text-xl gradient-text">Portfolio</span>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Desenvolvedor Full Stack apaixonado por criar soluções web modernas e inovadoras.
+                {t.footer.brandDescription}
               </p>
             </motion.div>
 
             {/* Quick Links */}
             <motion.div variants={itemVariants}>
-              <h3 className="font-bold text-white mb-4">Links Rápidos</h3>
+              <h3 className="font-bold text-white mb-4">{t.footer.quickLinks}</h3>
               <ul className="space-y-2">
-                {[
-                  { label: 'Início', id: 'home' },
-                  { label: 'Sobre', id: 'about' },
-                  { label: 'Projetos', id: 'projects' },
-                  { label: 'Contato', id: 'contact' },
-                ].map((link) => (
+                {t.navItems.map((link) => (
                   <li key={link.id}>
-                    <button
-                      onClick={() => {
-                        const element = document.getElementById(link.id);
-                        if (element) element.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="text-gray-400 hover:text-sky-400 transition-colors text-sm link-hover"
+                    <a
+                      href={`#${link.id}`}
+                      className="text-gray-400 hover:text-sky-400 transition-colors text-sm link-hover inline-block"
                     >
                       {link.label}
-                    </button>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -81,7 +73,7 @@ const Footer = () => {
 
             {/* Social Links */}
             <motion.div variants={itemVariants}>
-              <h3 className="font-bold text-white mb-4">Redes Sociais</h3>
+              <h3 className="font-bold text-white mb-4">{t.footer.socialTitle}</h3>
               <div className="flex gap-4">
                 {portfolioData.social.github && (
                   <motion.a
@@ -140,9 +132,9 @@ const Footer = () => {
             variants={itemVariants}
             className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
           >
-            <p>&copy; {currentYear} {portfolioData.personal.name}. Todos os direitos reservados.</p>
+            <p>&copy; {currentYear} {portfolioData.personal.name}. {t.footer.rights}</p>
             <p className="text-xs text-gray-500 mt-4 md:mt-0">
-              Desenvolvido com React, Tailwind CSS e Framer Motion
+              {t.footer.builtWith}
             </p>
           </motion.div>
         </motion.div>

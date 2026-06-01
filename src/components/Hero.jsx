@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Hero = () => {
+const Hero = ({ t }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = portfolioData.personal.subtitle;
+  const fullText = t.hero.subtitle;
 
   useEffect(() => {
     let index = 0;
@@ -53,8 +53,21 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-dark-950 to-blue-600/5" />
       
       {/* Elementos de decoração */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl animate-pulse" />
+      <motion.div
+        className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl bg-sky-500/10"
+        animate={{ x: [0, 16, 0], y: [0, -16, 0], opacity: [0.85, 1, 0.85] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-72 h-72 rounded-full blur-3xl bg-blue-600/10"
+        animate={{ x: [0, -18, 0], y: [0, 18, 0], opacity: [0.85, 1, 0.85] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-44 h-44 rounded-full border border-sky-500/20"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+      />
 
       <motion.div
         variants={containerVariants}
@@ -64,11 +77,15 @@ const Hero = () => {
       >
         {/* Greeting */}
         <motion.div variants={itemVariants}>
-          <p className="text-sky-400 font-semibold mb-4">Bem-vindo ao meu portfólio</p>
+          <p className="text-sky-400 font-semibold mb-4">{t.hero.greeting}</p>
         </motion.div>
 
         {/* Main Title */}
-        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6">
+        <motion.h1
+          variants={itemVariants}
+          whileHover={{ scale: 1.02, textShadow: '0 0 30px rgba(14, 165, 233, 0.8)' }}
+          className="text-5xl md:text-7xl font-bold mb-6"
+        >
           <span className="gradient-text">{portfolioData.personal.name}</span>
         </motion.h1>
 
@@ -83,7 +100,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8"
         >
-          {portfolioData.personal.description}
+          {t.hero.description}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -93,15 +110,15 @@ const Hero = () => {
         >
           <button
             onClick={() => scrollToSection('projects')}
-            className="btn-primary"
+            className="btn-primary ripple"
           >
-            Ver Projetos
+            {t.hero.btnProjects}
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="btn-secondary"
+            className="btn-secondary ripple"
           >
-            Entrar em Contato
+            {t.hero.btnContact}
           </button>
           {portfolioData.personal.cv && (
             <a
@@ -110,7 +127,7 @@ const Hero = () => {
               className="btn-secondary flex items-center justify-center gap-2"
             >
               <Download size={20} />
-              Download CV
+              {t.hero.downloadCv}
             </a>
           )}
         </motion.div>

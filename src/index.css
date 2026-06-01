@@ -15,11 +15,134 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #030712;
   color: #ffffff;
   line-height: 1.6;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes rotateSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmerGlow {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: floatY 7s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotateSlow 24s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmerGlow 2.5s ease-in-out infinite;
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(14,165,233,0.18), rgba(96,165,250,0.12));
+  transform: translate3d(0,0,0);
+  animation-name: floatParticle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Clip-path reveal for titles */
+.reveal-title {
+  position: relative;
+  overflow: hidden;
+}
+.reveal-title::after {
+  content: '';
+  position: absolute;
+  left: -10%;
+  top: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.0));
+  transform: translateX(-110%);
+  animation: sweep 1.2s ease-out 0.2s forwards;
+}
+@keyframes sweep {
+  to { transform: translateX(110%); }
+}
+
+/* Tilt container helper */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.tilt-card img {
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  transform-origin: center center;
+}
+
+/* Custom Cursor */
+/* Custom cursor removed */
+/* Fancy CTA border */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, rgba(14,165,233,0.6), rgba(99,102,241,0.6), rgba(236,72,153,0.6));
+  z-index: -1;
+  filter: blur(18px);
+  opacity: 0.85;
+  transform: translateY(6px);
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+.btn-primary:hover::before { transform: translateY(0); opacity: 1; }
+
+/* Ripple effect on buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  transition: 0s;
 }
 
 /* Scrollbar customizado */
@@ -163,6 +286,18 @@ body {
 
 .shadow-glow-lg {
   box-shadow: 0 0 40px rgba(14, 165, 233, 0.4);
+}
+
+.section-spotlight {
+  background: radial-gradient(circle at top center, rgba(14, 165, 233, 0.12), transparent 45%);
+}
+
+.section-spotlight-strong {
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.18), transparent 40%);
+}
+
+.command-hover:hover {
+  transform: translateY(-6px);
 }
 
 /* Backgrounds com padrões */

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { languageOptions } from '../data/languageData';
 
-const Navbar = ({ activeSection }) => {
+const Navbar = ({ activeSection, language, onLanguageChange, t }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -15,15 +16,7 @@ const Navbar = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { label: 'Início', id: 'home' },
-    { label: 'Sobre', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projetos', id: 'projects' },
-    { label: 'Experiência', id: 'experience' },
-    { label: 'Formação', id: 'education' },
-    { label: 'Contato', id: 'contact' },
-  ];
+  const navItems = t.navItems;
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -39,7 +32,7 @@ const Navbar = ({ activeSection }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 navbar-font ${
-        scrolled ? 'glass shadow-glow' : 'bg-transparent'
+        scrolled || isOpen ? 'glass shadow-glow' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -70,6 +63,20 @@ const Navbar = ({ activeSection }) => {
                 {item.label}
               </motion.button>
             ))}
+            <div className="flex items-center gap-2">
+              {languageOptions.map((lang) => (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => onLanguageChange(lang.code)}
+                  className={`px-3 py-2 rounded-full text-sm font-semibold transition-all ${
+                    language === lang.code ? 'bg-sky-500 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -102,6 +109,20 @@ const Navbar = ({ activeSection }) => {
                 {item.label}
               </button>
             ))}
+            <div className="flex flex-wrap gap-2 mt-4 px-4">
+              {languageOptions.map((lang) => (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => onLanguageChange(lang.code)}
+                  className={`px-3 py-2 rounded-full text-sm font-semibold transition-all w-full ${
+                    language === lang.code ? 'bg-sky-500 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

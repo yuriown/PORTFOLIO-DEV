@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Experience = () => {
+const Experience = ({ t }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,8 +39,8 @@ const Experience = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Experiência Profissional</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal-title">
+              <span className="gradient-text">{t.experience.title}</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" />
           </motion.div>
@@ -55,11 +55,17 @@ const Experience = () => {
               <motion.div
                 key={exp.id}
                 variants={itemVariants}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
                 className={`mb-12 md:mb-8 ${index % 2 === 0 ? 'md:mr-1/2 md:pr-12' : 'md:ml-1/2 md:pl-12'}`}
               >
                 {/* Timeline Dot */}
                 <div className="flex items-start md:relative">
-                  <div className="absolute left-0 w-16 h-16 bg-gradient-to-br from-sky-500/30 to-blue-600/30 rounded-full blur-lg md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:top-0" />
+                  <motion.div
+                    className="absolute left-0 w-16 h-16 bg-gradient-to-br from-sky-500/30 to-blue-600/30 rounded-full blur-lg md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:top-0"
+                    animate={{ scale: [1, 1.05, 1], opacity: [0.9, 0.55, 0.9] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                  />
                   <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-dark-950 border-2 border-sky-500 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:top-0 md:absolute">
                     <Briefcase size={24} className="text-sky-400" />
                   </div>
@@ -77,12 +83,12 @@ const Experience = () => {
                     </div>
 
                     <p className="text-gray-300 mb-4">
-                      {exp.description}
+                      {t.experience.items?.[exp.id]?.description ?? exp.description}
                     </p>
 
                     {/* Skills used */}
                     <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill) => (
+                      {(t.experience.items?.[exp.id]?.skills ?? exp.skills).map((skill) => (
                         <span
                           key={skill}
                           className="text-xs bg-sky-500/20 text-sky-300 px-2 py-1 rounded-full"

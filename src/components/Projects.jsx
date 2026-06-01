@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('Todos');
-
-  const categories = ['Todos', 'Front-end', 'Back-end', 'Full Stack'];
-
-  const filteredProjects = activeFilter === 'Todos'
-    ? portfolioData.projects
-    : portfolioData.projects.filter((p) => p.category === activeFilter);
-
+const Projects = ({ t }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,8 +27,8 @@ const Projects = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-float" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -47,31 +39,12 @@ const Projects = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Meus Projetos</span>
-            </h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal-title">
+                  <span className="gradient-text">{t.projects.title}</span>
+                </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Uma seleção dos meus projetos recentes, demonstrando minhas habilidades e experiência
+              {t.projects.description}
             </p>
-          </motion.div>
-
-          {/* Filter Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center mb-12">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all ${
-                  activeFilter === category
-                    ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg'
-                    : 'glass text-gray-300 hover:text-white'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {category}
-              </motion.button>
-            ))}
           </motion.div>
 
           {/* Projects Grid */}
@@ -79,17 +52,39 @@ const Projects = () => {
             variants={containerVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {filteredProjects.map((project) => (
+            {portfolioData.projects.map((project) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                className="glass rounded-xl overflow-hidden card-hover group"
+                whileHover={{ y: -10 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="glass rounded-xl overflow-hidden card-hover group tilt-card"
+                onMouseMove={(e) => {
+                  const img = e.currentTarget.querySelector('img');
+                  if (!img) return;
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = (e.clientX - rect.left) / rect.width - 0.5;
+                  const y = (e.clientY - rect.top) / rect.height - 0.5;
+                  const rotateX = (-y * 12).toFixed(2);
+                  const rotateY = (x * 12).toFixed(2);
+                  img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+                  img.style.boxShadow = '0 20px 40px rgba(2,6,23,0.6)';
+                }}
+                onMouseLeave={(e) => {
+                  const img = e.currentTarget.querySelector('img');
+                  if (!img) return;
+                  img.style.transform = '';
+                  img.style.boxShadow = '';
+                }}
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden h-48 bg-gray-800">
-                  <img
+                  <motion.img
                     src={project.image}
                     alt={project.title}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent" />
@@ -108,7 +103,7 @@ const Projects = () => {
                     {project.title}
                   </h3>
                   <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                    {project.description}
+                    {t.projects.projectDescriptions?.[project.id] ?? project.description}
                   </p>
 
                   {/* Technologies */}
@@ -133,7 +128,7 @@ const Projects = () => {
                         className="flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors"
                       >
                         <ExternalLink size={18} />
-                        <span className="text-sm font-semibold">Demo</span>
+                        <span className="text-sm font-semibold">{t.projects.demoLabel}</span>
                       </a>
                     )}
                     {project.links.github && project.links.github !== '[LINK DO GITHUB]' && (
@@ -144,7 +139,7 @@ const Projects = () => {
                         className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                       >
                         <Github size={18} />
-                        <span className="text-sm font-semibold">GitHub</span>
+                        <span className="text-sm font-semibold">{t.projects.githubLabel}</span>
                       </a>
                     )}
                   </div>
@@ -154,13 +149,13 @@ const Projects = () => {
           </motion.div>
 
           {/* No Projects Message */}
-          {filteredProjects.length === 0 && (
+          {portfolioData.projects.length === 0 && (
             <motion.div
               variants={itemVariants}
               className="text-center py-12"
             >
               <p className="text-gray-400 text-lg">
-                Nenhum projeto encontrado para esta categoria
+                {t.projects.noProjects}
               </p>
             </motion.div>
           )}
