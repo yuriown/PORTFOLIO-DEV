@@ -33,12 +33,17 @@ Um portfólio pessoal moderno, responsivo e profissional desenvolvido com **Reac
 
 ## 🛠️ Tecnologias Utilizadas
 
+### Frontend
 - **React 18.2** - Biblioteca JavaScript
 - **Tailwind CSS 3.3** - Utility-first CSS framework
 - **Framer Motion 10.16** - Biblioteca de animações
 - **Lucide React 0.292** - Ícones SVG
 - **Vite 5.0** - Build tool rápido
 - **PostCSS & Autoprefixer** - Processamento CSS
+
+### 🐳 Infraestrutura
+- **Docker & Docker Compose** - Containerização e orquestração de ambientes
+- **Ambientes Isolados** - Desenvolvimento, teste e produção padronizados
 
 ## 📦 Instalação
 
@@ -62,7 +67,41 @@ npm run dev
 
 O projeto será executado em `http://localhost:5173`
 
-## ⚙️ Personalização
+## 🐳 Docker - Infraestrutura e Deployment
+
+Este projeto é desenvolvido e estudado com **infraestrutura baseada em Docker**, garantindo ambientes consistentes entre desenvolvimento, testes e produção.
+
+### Por que Docker?
+- ✅ **Ambientes Isolados** - Evita conflitos de dependências
+- ✅ **Reprodutibilidade** - Mesmo ambiente em qualquer máquina
+- ✅ **Escalabilidade** - Fácil deploy em produção
+- ✅ **CI/CD** - Integração contínua com pipelines automatizados
+
+### Requisitos
+- Docker 20.10+ 
+- Docker Compose 1.29+
+
+### Executar com Docker
+
+#### Build da imagem
+```bash
+docker build -t portfolio-app .
+```
+
+#### Rodar com Docker Compose
+```bash
+docker-compose up
+```
+
+O projeto estará disponível em `http://localhost:5173`
+
+### Build para produção com Docker
+```bash
+docker build -t portfolio-app:prod --target production .
+docker run -p 80:80 portfolio-app:prod
+```
+
+**Nota:** Este projeto está em desenvolvimento e estudo contínuo de práticas modernas de infraestrutura com Docker, CI/CD e deploy automatizado.
 
 ### 1. Edite o arquivo de dados (`src/data/portfolioData.js`)
 
