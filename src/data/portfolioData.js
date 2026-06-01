@@ -20,7 +20,6 @@ export const portfolioData = {
     github: "https://github.com/yuriown",
     linkedin: "https://linkedin.com/in/yuri-pedrozo",
     email: "yuriowns13@gmail.com",
-    instagram: "https://instagram.com/yuriowns",
   },
 
   // ========== SOBRE MIM ==========
@@ -48,19 +47,19 @@ export const portfolioData = {
     {
       name: "HTML",
       icon: "Code",
-      level: 90,
+      level: 100,
       color: "from-orange-400 to-orange-600",
     },
     {
       name: "CSS",
       icon: "Palette",
-      level: 85,
+      level: 100,
       color: "from-blue-400 to-blue-600",
     },
     {
       name: "JavaScript",
       icon: "Zap",
-      level: 85,
+      level: 100,
       color: "from-yellow-400 to-yellow-600",
     },
     {
@@ -84,13 +83,13 @@ export const portfolioData = {
     {
       name: "Tailwind CSS",
       icon: "Wind",
-      level: 55,
+      level: 90,
       color: "from-teal-400 to-teal-600",
     },
     {
       name: "Git",
       icon: "GitBranch",
-      level: 90,
+      level: 100,
       color: "from-red-400 to-red-600",
     },
     {

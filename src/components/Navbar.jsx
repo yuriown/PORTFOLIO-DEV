@@ -38,7 +38,7 @@ const Navbar = ({ activeSection }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 navbar-font ${
         scrolled ? 'glass shadow-glow' : 'bg-transparent'
       }`}
     >
