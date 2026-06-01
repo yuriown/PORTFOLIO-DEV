@@ -48,25 +48,25 @@ export const portfolioData = {
     {
       name: "HTML",
       icon: "Code",
-      level: 95,
+      level: 90,
       color: "from-orange-400 to-orange-600",
     },
     {
       name: "CSS",
       icon: "Palette",
-      level: 90,
+      level: 85,
       color: "from-blue-400 to-blue-600",
     },
     {
       name: "JavaScript",
       icon: "Zap",
-      level: 95,
+      level: 85,
       color: "from-yellow-400 to-yellow-600",
     },
     {
       name: "React",
       icon: "Atom",
-      level: 80,
+      level: 60,
       color: "from-cyan-400 to-cyan-600",
     },
     {
@@ -114,7 +114,7 @@ export const portfolioData = {
     {
       name: "Lua",
       icon: "Lightbulb",
-      level: 95,
+      level: 90,
       color: "from-purple-400 to-indigo-600",
     },
   ],
