@@ -103,86 +103,6 @@ docker run -p 80:80 portfolio-app:prod
 
 **Nota:** Este projeto está em desenvolvimento e estudo contínuo de práticas modernas de infraestrutura com Docker, CI/CD e deploy automatizado.
 
-### 1. Edite o arquivo de dados (`src/data/portfolioData.js`)
-
-Este é o arquivo principal onde você personaliza **TODAS** as informações do portfólio:
-
-```javascript
-export const portfolioData = {
-  personal: {
-    name: "[SEU NOME AQUI]",
-    title: "Desenvolvedor Full Stack",
-    // ... mais campos
-  },
-  // ... outras seções
-};
-```
-
-#### Campos principais a editar:
-
-- **`personal.name`** - Seu nome
-- **`personal.title`** - Seu cargo/título
-- **`personal.subtitle`** - Subtítulo com typing effect
-- **`personal.description`** - Descrição profissional
-- **`personal.avatar`** - URL da sua foto
-- **`personal.cv`** - URL do seu CV em PDF
-
-- **`social`** - Links de redes sociais
-  - `github` - Perfil GitHub
-  - `linkedin` - Perfil LinkedIn
-  - `email` - Email de contato
-  - `instagram` - Perfil Instagram (opcional)
-
-- **`about.description`** - Descrição detalhada sobre você
-- **`about.stats`** - Estatísticas (anos de experiência, projetos, etc.)
-
-- **`skills`** - Array de tecnologias (já pré-preenchido)
-  - Cada skill tem: `name`, `icon`, `level`, `color`
-
-- **`projects`** - Array com seus projetos
-  ```javascript
-  {
-    id: 1,
-    title: "Nome do Projeto",
-    description: "Descrição",
-    image: "URL da imagem",
-    technologies: ["React", "Node.js"],
-    category: "Full Stack",
-    links: {
-      demo: "https://...",
-      github: "https://..."
-    }
-  }
-  ```
-
-- **`experience`** - Array de experiências profissionais
-- **`education`** - Array de cursos e certificações
-
-### 2. Adicionar suas imagens
-
-Substitua as URLs de placeholder por suas imagens reais:
-
-```javascript
-avatar: "https://via.placeholder.com/400x400" // Sua foto
-image: "https://via.placeholder.com/500x300" // Imagem do projeto
-```
-
-**Dica:** Use serviços como:
-- [ImgBB](https://imgbb.com/) - Hospedagem gratuita de imagens
-- [Imgur](https://imgur.com/) - Compartilhar imagens
-- [Cloudinary](https://cloudinary.com/) - Otimização de imagens
-
-### 3. Customizar cores
-
-O esquema de cores está em `tailwind.config.js`. Para alterar cores:
-
-```javascript
-colors: {
-  primary: { /* cores primárias */ },
-  dark: { /* tons de escuro */ }
-}
-```
-
 ## 📁 Estrutura do Projeto
 
 ```
@@ -199,7 +119,7 @@ src/
 │   ├── Footer.jsx
 │   └── ScrollToTop.jsx
 ├── data/
-│   └── portfolioData.js  # 🔑 ARQUIVO PRINCIPAL - EDITE AQUI
+│   └── portfolioData.js  # Configurações do portfólio
 ├── App.jsx              # Componente principal
 ├── main.jsx             # Entry point
 ├── index.css            # Estilos globais
@@ -238,105 +158,6 @@ Isso criará uma pasta `dist/` com os arquivos otimizados.
    git push origin main
    ```
 
-## 🎨 Personalizações Avançadas
-
-### Mudar tema de cores
-
-Edite `tailwind.config.js`:
-
-```javascript
-extend: {
-  colors: {
-    primary: {
-      50: '#f0f9ff',
-      500: '#0ea5e9',
-      // ... mais tons
-    }
-  }
-}
-```
-
-### Adicionar novas seções
-
-1. Crie um novo componente em `src/components/`
-2. Importe em `App.jsx`
-3. Adicione em `App.jsx` com um ID único
-
-### Modificar animações
-
-As animações estão em `tailwind.config.js` na seção `keyframes`.
-
-## 📝 Exemplos de Preenchimento
-
-### Hero Section
-
-```javascript
-personal: {
-  name: "João Silva",
-  title: "Desenvolvedor Full Stack",
-  subtitle: "Transformando ideias em soluções digitais",
-  description: "Especialista em React, Node.js e tecnologias modernas. Ajudo empresas a criar aplicações web de alta performance.",
-  avatar: "https://example.com/foto.jpg",
-}
-```
-
-### Projeto
-
-```javascript
-{
-  id: 1,
-  title: "E-commerce Moderno",
-  description: "Plataforma de e-commerce completa com carrinho de compras, checkout seguro e painel administrativo.",
-  image: "https://example.com/projeto1.jpg",
-  technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-  category: "Full Stack",
-  links: {
-    demo: "https://ecommerce-demo.com",
-    github: "https://github.com/usuario/ecommerce"
-  }
-}
-```
-
-## 🐛 Troubleshooting
-
-### Porta já está em uso
-
-```bash
-npm run dev -- --port 3000
-```
-
-### Erro ao instalar dependências
-
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
-
-### Problema com build
-
-```bash
-npm run build -- --debug
-```
-
-## 📞 Suporte
-
-Para dúvidas ou problemas:
-
-1. Verifique se todas as dependências estão instaladas
-2. Limpe o cache: `npm cache clean --force`
-3. Reinstale tudo: `rm -rf node_modules && npm install`
-4. Verifique a versão do Node.js: `node -v` (deve ser 16+)
-
 ## 📄 Licença
 
-Desenvolvido com ❤️ por você
-
----
-
-**Dica:** Não esqueça de:
-- ✅ Personalizar TODAS as informações em `src/data/portfolioData.js`
-- ✅ Adicionar suas próprias imagens
-- ✅ Testar em diferentes dispositivos
-- ✅ Deploy em uma plataforma (Vercel, Netlify, etc.)
-
-Boa sorte! 🚀
+Desenvolvido com ❤️ por Yuri Pedrozo

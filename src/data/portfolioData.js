@@ -1,6 +1,3 @@
-// ⭐ ARQUIVO EDITÁVEL - PERSONALIZE COM SUAS INFORMAÇÕES
-// Atualize este arquivo com suas informações pessoais, projetos e experiências
-
 export const portfolioData = {
   // ========== INFORMAÇÕES PESSOAIS ==========
   personal: {
