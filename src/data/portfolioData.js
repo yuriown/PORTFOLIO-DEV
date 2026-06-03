@@ -20,6 +20,7 @@ export const portfolioData = {
     github: "https://github.com/yuriown",
     linkedin: "https://linkedin.com/in/yuri-pedrozo",
     email: "yuriowns13@gmail.com",
+    whatsapp: "https://wa.me/5547991807029",
   },
 
   // ========== SOBRE MIM ==========

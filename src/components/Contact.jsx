@@ -1,40 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Github, Linkedin, MessageSquare, Instagram } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 const Contact = ({ t }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [submitStatus, setSubmitStatus] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulating form submission
-    // In a real application, you would send this data to a backend service
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1000);
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -78,112 +47,24 @@ const Contact = ({ t }) => {
             </p>
           </motion.div>
 
-          {/* Contact Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div variants={itemVariants}>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Input */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-300">
-                    {t.contact.nameLabel}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder={t.contact.namePlaceholder}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500"
-                  />
-                </div>
-
-                {/* Email Input */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-300">
-                    {t.contact.emailLabel}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder={t.contact.emailPlaceholder}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500"
-                  />
-                </div>
-
-                {/* Message Input */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-300">
-                    {t.contact.messageLabel}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder={t.contact.messagePlaceholder}
-                    rows="5"
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-dark-800/50 border border-gray-700 focus:border-sky-500 focus:outline-none transition-colors text-white placeholder-gray-500 resize-none"
-                  />
-                </div>
-
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 rounded-lg bg-green-500/20 border border-green-500 text-green-300"
-                  >
-                    {t.contact.successMessage}
-                  </motion.div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 rounded-lg bg-red-500/20 border border-red-500 text-red-300"
-                  >
-                    {t.contact.errorMessage}
-                  </motion.div>
-                )}
-
-                {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <Send size={20} />
-                  {isSubmitting ? t.contact.sendingButton : t.contact.sendButton}
-                </motion.button>
-              </form>
-            </motion.div>
-
-            {/* Contact Info */}
+          {/* Contact Content */}
+          <div className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-6">
-              {/* Email */}
+              {/* WhatsApp */}
               <motion.a
-                href={`mailto:${portfolioData.social.email}`}
+                href={portfolioData.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 className="glass rounded-lg p-6 flex items-start gap-4 group hover:bg-sky-500/10 transition-all"
               >
                 <div className="p-3 rounded-lg bg-gradient-to-br from-sky-500/30 to-blue-600/30 text-sky-400 group-hover:scale-110 transition-transform">
-                  <Mail size={24} />
+                  <MessageSquare size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">{t.contact.emailTitle}</h4>
+                  <h4 className="font-semibold text-white mb-1">{t.contact.whatsappTitle}</h4>
                   <p className="text-gray-400 group-hover:text-sky-400 transition-colors">
-                    {portfolioData.social.email}
+                    +55 47 99180-7029
                   </p>
                 </div>
               </motion.a>

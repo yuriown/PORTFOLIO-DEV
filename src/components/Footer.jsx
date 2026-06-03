@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Github, Linkedin, MessageSquare, Instagram } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 const Footer = ({ t }) => {
@@ -97,13 +97,15 @@ const Footer = ({ t }) => {
                     <Linkedin size={20} />
                   </motion.a>
                 )}
-                {portfolioData.social.email && (
+                {portfolioData.social.whatsapp && (
                   <motion.a
-                    href={`mailto:${portfolioData.social.email}`}
+                    href={portfolioData.social.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     className="p-2 rounded-full glass hover:bg-sky-500/20 transition-all text-gray-400 hover:text-sky-400"
                   >
-                    <Mail size={20} />
+                    <MessageSquare size={20} />
                   </motion.a>
                 )}
                 {portfolioData.social.instagram && (

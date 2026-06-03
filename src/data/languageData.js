@@ -91,6 +91,7 @@ export const translations = {
       nameLabel: 'Seu Nome',
       emailLabel: 'Seu Email',
       emailTitle: 'Email',
+      whatsappTitle: 'WhatsApp',
       githubLabel: 'GitHub',
       linkedinLabel: 'LinkedIn',
       instagramLabel: 'Instagram',

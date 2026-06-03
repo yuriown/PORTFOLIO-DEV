@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, MessageSquare, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 const Hero = ({ t }) => {
@@ -159,13 +159,15 @@ const Hero = ({ t }) => {
               <Linkedin size={24} />
             </motion.a>
           )}
-          {portfolioData.social.email && (
+          {portfolioData.social.whatsapp && (
             <motion.a
-              href={`mailto:${portfolioData.social.email}`}
+              href={portfolioData.social.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.1, rotate: 10 }}
               className="p-3 rounded-full glass hover:bg-sky-500/20 transition-all"
             >
-              <Mail size={24} />
+              <MessageSquare size={24} />
             </motion.a>
           )}
           {portfolioData.social.instagram && (
