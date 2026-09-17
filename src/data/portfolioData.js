@@ -1,4 +1,4 @@
-import photoUser from '../photo_user.png';
+import photoUser from '../photo_user.jpg';
 import cvFile from '../CV.pdf';
 import loveCodeImage from '../lovecode-site.png';
 import oldersRetroImage from '../oldersretro.png';
@@ -177,6 +177,15 @@ export const portfolioData = {
       description:
         "Desenvolvi automações e ferramentas para otimizar processos comerciais, incluindo calculadoras customizadas, integrações entre CRM e ERP, dashboards estratégicos e automação de fluxos de dados, contribuindo para maior eficiência operacional, redução de retrabalho e melhoria nos resultados de vendas.",
       skills: ["CRM/ERP", "Automação de dados", "Dashboards e BI"],
+    },
+    {
+      id: 3,
+      company: "Pass-e",
+      position: "Estagiário de DevOps & Infraestrutura",
+      period: "Atual",
+      description:
+        "Atuo na automação, segurança e confiabilidade da infraestrutura de desenvolvimento e produção. Fui responsável pelo provisionamento e padronização do ambiente local de testes do time com Terraform, Packer e Mockoon, facilitando o onboarding técnico de novos desenvolvedores. No dia a dia, desenvolvo scripts em Bash e Python para diagnóstico não-destrutivo de servidores Linux (monitorando systemd, Docker, PostgreSQL e armazenamento), identifico e corrijo vulnerabilidades de acesso/backup com validação em VMs isoladas e crio runbooks operacionais. Também integro serviços e APIs aos pipelines de CI/CD no GitHub Actions com testes automatizados nos portões de qualidade.",
+      skills: ["Terraform", "Packer", "Mockoon", "Bash e Python", "Linux", "Docker", "PostgreSQL", "GitHub Actions"],
     },
   ],
 
