@@ -1,4 +1,4 @@
-import photoUser from '../photo_user.jpg';
+import photoUser from '../photo_user.png';
 import cvFile from '../CV.pdf';
 import loveCodeImage from '../lovecode-site.png';
 import oldersRetroImage from '../oldersretro.png';
