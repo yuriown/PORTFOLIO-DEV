@@ -52,6 +52,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        5: 'Shooter naval 2D em PixiJS com IA de inimigos, ranking via API mockada e testes E2E.',
         4: 'Protótipo jogável de slot machine 5x3 com física de parada elástica, paylines dinâmicas, áudio sintetizado e WebSocket mock.',
         1: 'Sites para casais, com timer, fotos, músicas e lembranças especiais.',
         2: 'Servidor de Tibia com diversas funcionalidades excluvisas.',
@@ -165,6 +166,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        5: '2D naval shooter in PixiJS with enemy AI, a mocked ranking API and E2E tests.',
         4: 'Playable 5x3 slot machine prototype featuring realistic reel spring physics, dynamic paylines, procedural audio, and mock WebSocket.',
         1: 'Sites for couples, with timer, photos, music, and special memories.',
         2: 'Tibia server with exclusive features.',
@@ -277,6 +279,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        5: 'Shooter naval 2D en PixiJS con IA de enemigos, ranking con API simulada y pruebas E2E.',
         4: 'Prototipo jugable de tragamonedas 5x3 con física de carretes, líneas de pago dinámicas, audio sintetizado y simulación WebSocket.',
         1: 'Sitios para parejas, con temporizador, fotos, música y recuerdos especiales.',
         2: 'Servidor de Tibia con diversas funcionalidades exclusivas.',
