@@ -136,7 +136,7 @@ export const portfolioData = {
       technologies: ["React 18", "Pixi.js v8", "TypeScript", "Web Audio API", "Tailwind CSS"],
       category: "Game Dev / Front-end",
       links: {
-        demo: "https://github.com/yuriown/jungle-slot-prototype",
+        demo: "https://jungle-slot-prototype.vercel.app/",
         github: "https://github.com/yuriown/jungle-slot-prototype",
       },
     },
