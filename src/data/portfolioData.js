@@ -1,4 +1,5 @@
 import jungleSlotImage from '../jungle-slot.png';
+import pirateBattleImage from '../pirate-battle.jpg';
 import photoUser from '../photo_user.png';
 import cvFile from '../CV.pdf';
 import loveCodeImage from '../lovecode-site.png';
@@ -35,7 +36,7 @@ export const portfolioData = {
       },
       {
         label: "Projetos Concluídos",
-        value: "4",
+        value: "5",
       },
       {
         label: "Clientes Satisfeitos",
@@ -128,6 +129,18 @@ export const portfolioData = {
 
   // ========== PROJETOS ==========
   projects: [
+    {
+      id: 5,
+      title: "Pirate Battle",
+      description: "Shooter naval 2D com PixiJS v8: simulação determinística, IA de inimigos, ranking com API mockada (MSW) e 84 testes E2E com Playwright e CI.",
+      image: pirateBattleImage,
+      technologies: ["React 18", "Pixi.js v8", "TypeScript", "TanStack Query", "MSW", "Playwright"],
+      category: "Game Dev / Front-end",
+      links: {
+        demo: "https://pirate-battle-plum.vercel.app/",
+        github: "https://github.com/yuriown/pirate-battle",
+      },
+    },
     {
       id: 4,
       title: "Cosmic Jungle Slot",
