@@ -1,3 +1,4 @@
+import jungleSlotImage from '../jungle-slot.png';
 import photoUser from '../photo_user.png';
 import cvFile from '../CV.pdf';
 import loveCodeImage from '../lovecode-site.png';
@@ -34,7 +35,7 @@ export const portfolioData = {
       },
       {
         label: "Projetos Concluídos",
-        value: "3",
+        value: "4",
       },
       {
         label: "Clientes Satisfeitos",
@@ -62,6 +63,12 @@ export const portfolioData = {
       icon: "Zap",
       level: 100,
       color: "from-yellow-400 to-yellow-600",
+    },
+    {
+      name: "Pixi.js",
+      icon: "Gamepad2",
+      level: 80,
+      color: "from-fuchsia-400 to-purple-600",
     },
     {
       name: "React",
@@ -121,6 +128,18 @@ export const portfolioData = {
 
   // ========== PROJETOS ==========
   projects: [
+    {
+      id: 4,
+      title: "Cosmic Jungle Slot",
+      description: "Protótipo jogável de slot machine 5x3 com PixiJS v8, física de parada elástica, paylines dinâmicas, Web Audio API e simulação WebSocket.",
+      image: jungleSlotImage,
+      technologies: ["React 18", "Pixi.js v8", "TypeScript", "Web Audio API", "Tailwind CSS"],
+      category: "Game Dev / Front-end",
+      links: {
+        demo: "https://github.com/yuriown/jungle-slot-prototype",
+        github: "https://github.com/yuriown/jungle-slot-prototype",
+      },
+    },
     {
       id: 1,
       title: "LoveCode",

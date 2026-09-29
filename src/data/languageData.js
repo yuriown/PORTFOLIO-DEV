@@ -52,6 +52,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        4: 'Protótipo jogável de slot machine 5x3 com física de parada elástica, paylines dinâmicas, áudio sintetizado e WebSocket mock.',
         1: 'Sites para casais, com timer, fotos, músicas e lembranças especiais.',
         2: 'Servidor de Tibia com diversas funcionalidades excluvisas.',
         3: 'Site desenvolvido para a empresa Termotubos, com o objetivo de centralizar e facilitar informações.',
@@ -164,6 +165,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        4: 'Playable 5x3 slot machine prototype featuring realistic reel spring physics, dynamic paylines, procedural audio, and mock WebSocket.',
         1: 'Sites for couples, with timer, photos, music, and special memories.',
         2: 'Tibia server with exclusive features.',
         3: 'Website developed for Termotubos, aimed at centralizing and simplifying information.',
@@ -275,6 +277,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        4: 'Prototipo jugable de tragamonedas 5x3 con física de carretes, líneas de pago dinámicas, audio sintetizado y simulación WebSocket.',
         1: 'Sitios para parejas, con temporizador, fotos, música y recuerdos especiales.',
         2: 'Servidor de Tibia con diversas funcionalidades exclusivas.',
         3: 'Sitio desarrollado para la empresa Termotubos, con el objetivo de centralizar y facilitar información.',
