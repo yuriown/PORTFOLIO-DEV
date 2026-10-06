@@ -1,5 +1,6 @@
 import jungleSlotImage from '../jungle-slot.png';
 import pirateBattleImage from '../pirate-battle.jpg';
+import casoChiusoImage from '../caso-chiuso.png';
 import photoUser from '../photo_user.png';
 import cvFile from '../CV.pdf';
 import loveCodeImage from '../lovecode-site.png';
@@ -36,7 +37,7 @@ export const portfolioData = {
       },
       {
         label: "Projetos Concluídos",
-        value: "5",
+        value: "6",
       },
       {
         label: "Clientes Satisfeitos",
@@ -129,6 +130,18 @@ export const portfolioData = {
 
   // ========== PROJETOS ==========
   projects: [
+    {
+      id: 6,
+      title: "Caso Chiuso!",
+      description: "Jogo de navegador para 1 ou 2 jogadores em Phaser 4: labirinto procedural, IA que aprende o padrão de fuga do jogador, versão mobile com analógico virtual e testes com Vitest e CI.",
+      image: casoChiusoImage,
+      technologies: ["Phaser 4", "TypeScript", "Vite", "Vitest", "Web Audio API", "GitHub Actions"],
+      category: "Game Dev / Front-end",
+      links: {
+        demo: "https://yuriown.github.io/caso-chiuso/",
+        github: "https://github.com/yuriown/caso-chiuso",
+      },
+    },
     {
       id: 5,
       title: "Pirate Battle",
