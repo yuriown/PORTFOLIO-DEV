@@ -52,6 +52,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        6: 'Jogo de labirinto em Phaser 4 para 1 ou 2 jogadores, com IA que aprende o padrão do jogador e versão mobile.',
         5: 'Shooter naval 2D em PixiJS com IA de inimigos, ranking via API mockada e testes E2E.',
         4: 'Protótipo jogável de slot machine 5x3 com física de parada elástica, paylines dinâmicas, áudio sintetizado e WebSocket mock.',
         1: 'Sites para casais, com timer, fotos, músicas e lembranças especiais.',
@@ -166,6 +167,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        6: '1 or 2 player maze game in Phaser 4, with an AI that learns how the player moves and a mobile version.',
         5: '2D naval shooter in PixiJS with enemy AI, a mocked ranking API and E2E tests.',
         4: 'Playable 5x3 slot machine prototype featuring realistic reel spring physics, dynamic paylines, procedural audio, and mock WebSocket.',
         1: 'Sites for couples, with timer, photos, music, and special memories.',
@@ -279,6 +281,7 @@ export const translations = {
       demoLabel: 'Demo',
       githubLabel: 'GitHub',
       projectDescriptions: {
+        6: 'Juego de laberinto en Phaser 4 para 1 o 2 jugadores, con una IA que aprende el patrón del jugador y versión móvil.',
         5: 'Shooter naval 2D en PixiJS con IA de enemigos, ranking con API simulada y pruebas E2E.',
         4: 'Prototipo jugable de tragamonedas 5x3 con física de carretes, líneas de pago dinámicas, audio sintetizado y simulación WebSocket.',
         1: 'Sitios para parejas, con temporizador, fotos, música y recuerdos especiales.',
